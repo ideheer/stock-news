@@ -1,8 +1,9 @@
 import requests
+import os
 
 
-# Alphavantage API Key = FAC6S8I77OONNDL4
-# NewsAPI Key = 4d2f04456d6a404fbcba899bf7d3255a
+ALPHA_API_KEY = os.environ["Alpha_Key"]
+NEWS_API_KEY = os.environ["News_Key"]
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -10,7 +11,7 @@ COMPANY_NAME = "Tesla Inc"
 
 def get_stock_data():
     parameters = {
-        "apikey": "FAC6S8I77OONNDL4",
+        "apikey": ALPHA_API_KEY,
         "function": "TIME_SERIES_DAILY",
         "symbol": STOCK,
     }
@@ -29,7 +30,7 @@ def get_stock_data():
 
 def get_news():
     parameters = {
-        "apiKey": "4d2f04456d6a404fbcba899bf7d3255a",
+        "apiKey": NEWS_API_KEY,
         "q": "+Tesla",
     }
     url = 'https://newsapi.org/v2/everything'
